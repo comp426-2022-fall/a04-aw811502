@@ -11,10 +11,6 @@ const port = args.port || 5000;
 let app = express();
 app.use(express.urlencoded({extended:true}));
 
-app.get('*', function(req, res) {
-  res.status(404).send("404 NOT FOUND");
-});
-
 app.get('/app', function(req, res) {
   res.status(200).send("200 OK");
 });
@@ -58,5 +54,8 @@ app.get('/app/roll/:sides/:dice/:rolls', function (req, res) {
   res.send(response);
 });
 
+app.get('*', function(req, res) {
+  res.status(404).send("404 NOT FOUND");
+});
 
 app.listen(port);
