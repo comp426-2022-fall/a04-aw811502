@@ -16,40 +16,36 @@ app.get('/app', function(req, res) {
 });
 
 app.get('/app/roll', function(req, res) {
-  const query = req.query;
-  const sides = query.sides || 6;
-  const dice = query.dice || 2;
-  const rolls = query.rolls || 1;
-  const response = roll(sides, dice, rolls);
+  const response = roll(6,2,1);
   res.send(response);
 });
 
 app.post('/app/roll', function(req, res) {
   const body = req.body;
-  const sides = body.sides;
-  const rolls = body.rolls;
-  const dice = body.dice;
+  const sides = parseInt(body.sides);
+  const rolls = parseInt(body.rolls);
+  const dice = parseInt(body.dice);
   const response = roll(sides, dice, rolls); 
   res.send(response);
 });
 
 app.get('/app/roll/:sides', function (req, res) {
-  const sides = req.params.sides;
+  const sides = parseInt(req.params.sides);
   const response = roll(sides, 2, 1);
   res.send(response); 
 });
 
 app.get('/app/roll/:sides/:dice', function (req, res) {
-  const sides = req.params.sides;
-  const dice = req.params.dice;
+  const sides = parseInt(req.params.sides);
+  const dice = parseInt(req.params.dice);
   const response = roll(sides, dice, 1);
   res.send(response);
 });
 
 app.get('/app/roll/:sides/:dice/:rolls', function (req, res) {
-  const sides = req.params.sides;
-  const dice = req.params.dice;
-  const rolls = req.params.rolls;
+  const sides = parseInt(req.params.sides);
+  const dice = parseInt(req.params.dice);
+  const rolls = parseInt(req.params.rolls);
   const response = roll(sides, dice, rolls);
   res.send(response);
 });
