@@ -4,15 +4,14 @@
   "description": "API that emulates dice rolling",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js --port=5555",
-    "start": "node server.js"
+    "test": "node server.js --port=5555"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/comp426-2022-fall/a04-aw811502.git"
   },
   "author": "aw811502",
-  "license": "GPL-3.0-only",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/comp426-2022-fall/a04-aw811502/issues"
   },
