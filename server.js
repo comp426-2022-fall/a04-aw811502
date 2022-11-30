@@ -11,16 +11,16 @@ const port = args.port || 5000;
 let app = express();
 app.use(express.urlencoded({extended:true}));
 
-app.get('/app', function(req, res) {
+app.get('/app', (req, res) => {
   res.status(200).send("200 OK");
 });
 
-app.get('/app/roll', function(req, res) {
+app.get('/app/roll', (req, res) => {
   const response = roll(6,2,1);
   res.send(response);
 });
 
-app.post('/app/roll', function(req, res) {
+app.post('/app/roll', (req, res) => {
   const body = req.body;
   const sides = parseInt(body.sides);
   const rolls = parseInt(body.rolls);
@@ -29,20 +29,20 @@ app.post('/app/roll', function(req, res) {
   res.send(response);
 });
 
-app.get('/app/roll/:sides', function (req, res) {
+app.get('/app/roll/:sides', (req, res) => {
   const sides = parseInt(req.params.sides);
   const response = roll(sides, 2, 1);
   res.send(response); 
 });
 
-app.get('/app/roll/:sides/:dice', function (req, res) {
+app.get('/app/roll/:sides/:dice', (req, res) => {
   const sides = parseInt(req.params.sides);
   const dice = parseInt(req.params.dice);
   const response = roll(sides, dice, 1);
   res.send(response);
 });
 
-app.get('/app/roll/:sides/:dice/:rolls', function (req, res) {
+app.get('/app/roll/:sides/:dice/:rolls', (req, res) => {
   const sides = parseInt(req.params.sides);
   const dice = parseInt(req.params.dice);
   const rolls = parseInt(req.params.rolls);
@@ -50,7 +50,7 @@ app.get('/app/roll/:sides/:dice/:rolls', function (req, res) {
   res.send(response);
 });
 
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
   res.status(404).send("404 NOT FOUND");
 });
 
