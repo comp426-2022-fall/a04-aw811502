@@ -17,6 +17,7 @@ app.get('/app', (req, res) => {
 
 app.get('/app/roll', (req, res) => {
   const response = roll(6,2,1);
+  console.log(response);
   res.send(response);
 });
 
