@@ -10,7 +10,7 @@ const args = parseArgs(process.argv.slice(2));
 const port = args.port || 5000;
 
 console.log("parsed args");
-
+console.log(roll(3,2,4));
 let app = express();
 app.use(express.urlencoded({extended:true}));
 
@@ -19,6 +19,7 @@ console.log("made app");
 app.get('/app', (req, res) => {
   console.log("1start");
   res.status(200).send("200 OK");
+  console.log("1end");
 });
 
 app.get('/app/roll', (req, res) => {
