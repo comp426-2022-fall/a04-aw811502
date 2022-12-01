@@ -1,0 +1,1 @@
+PORT=\"$(shuf -i 2000-65535 -n 1)\"; (timeout --signal=SIGINT 5 node server.js --port=$PORT; exit 0) & sleep 1s && curl -s http://localhost:${PORT}/app/ && sleep 5s
