@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+console.log("starting server.js");
 import { roll } from "./lib/roll.js";
 import parseArgs from 'minimist';
 import express from 'express';
